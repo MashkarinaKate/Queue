@@ -13,7 +13,6 @@ namespace Queue_Машкарины_Екатерины
         int tail;
         public int size;
         int capacity;
-        T f;
         public Queue()
         {
             size = 0;
@@ -22,16 +21,15 @@ namespace Queue_Машкарины_Екатерины
             array = new T[1];
             capacity = 1;
         }
-        bool isEmpty()
+        public bool isEmpty()
         {
-            if (size == 0) return true;
-            else return false;
+            return (size == 0);
         }
         public void Enqueue(T item)
         {
             if (item == null)
             {
-                throw new Exception();
+                throw new Exception("item is null");
             }
             tail++;
             size++;
@@ -44,20 +42,22 @@ namespace Queue_Машкарины_Екатерины
         }
         public T Dequeue()
         {
-            if (!isEmpty())
+            if (isEmpty())
             {
-                head++;
-                size--;
-                capacity--;
-                return array[head];
+                throw new Exception();
             }
-            else return f;
+            head++;
+            size--;
+            capacity--;
+            return array[head -1];
         }
         public T Peek()
         {
-            if (!isEmpty())
-                return array[tail];
-            else return f;
+            if (isEmpty())
+            {
+                throw new Exception();
+            }
+            return array[head];
         }
         public void Clear()
         {
