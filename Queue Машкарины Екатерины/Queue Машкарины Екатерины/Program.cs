@@ -46,6 +46,7 @@ namespace Queue_Машкарины_Екатерины
                     case (4): q.Clear(); break;
                     case (5): Console.WriteLine("Count: {0}", q.Count); break;
                     case (6): s = false; break;
+                    default: Console.WriteLine("Введите число от 1 до 6"); break;
                 }
             }
             Console.ReadKey();
