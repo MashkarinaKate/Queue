@@ -35,9 +35,10 @@ namespace Queue_Машкарины_Екатерины
             size++;
             capacity++;
             T[] array2 = new T[capacity];
-            Array.Copy(array, array2, tail);
+            Array.Copy(array, head, array2, 0, tail);
             array2[tail] = item;
             array = new T[size];
+            head = 0;
             Array.Copy(array2, array, size);
         }
         public T Dequeue()
